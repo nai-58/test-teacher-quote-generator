@@ -15,7 +15,7 @@
     body {
       margin: 0;
       height: 100vh;
-      background: url('background.png') no-repeat center center fixed;
+      background: url('background-landscape.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--dark-green);
       display: flex;
@@ -25,6 +25,7 @@
       font-family: "Poppins", sans-serif;
       text-align: center;
       padding: 30px;
+      transition: background 0.3s ease;
     }
 
     h1 {
@@ -77,11 +78,11 @@
       transform: scale(1.05);
     }
 
-    /* Mobile / portrait layout */
+    /* MOBILE VIEW — switch to portrait image */
     @media screen and (max-width: 768px) {
       body {
-        background: url('background.png') no-repeat center top fixed;
-        background-size: contain;
+        background: url('background-portrait.png') no-repeat center center fixed;
+        background-size: cover;
         background-color: var(--cream);
         padding: 20px;
       }

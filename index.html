@@ -12,28 +12,30 @@
       --dark-green: #2f3c1c;
     }
 
-    body {
+    html, body {
       margin: 0;
-      height: 100vh;
-      background: url('background.png') no-repeat center center fixed;
-      background-size: cover;
-      background-color: var(--cream);
-      color: var(--dark-green);
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       font-family: "Poppins", sans-serif;
       text-align: center;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover; /* zoom to cover entire screen */
+      color: var(--dark-green);
       padding: 30px;
-      transition: background 0.3s ease;
     }
 
     h1 {
       font-size: 2em;
       margin-bottom: 20px;
       color: var(--dark-green);
-      text-shadow: 0 0 8px rgba(251, 246, 227, 0.8);
+      text-shadow: 0 0 8px rgba(251, 246, 227, 0.9);
     }
 
     .quote-box {
@@ -82,11 +84,10 @@
     /* MOBILE OPTIMIZATION */
     @media screen and (max-width: 768px) {
       body {
-        background: url('background.png') no-repeat center center;
-        background-attachment: scroll;
-        background-size: contain;
-        background-color: var(--cream);
         padding: 20px;
+        background-size: cover; /* keep zoomed on mobile */
+        background-position: center top; /* show top part first */
+        background-attachment: scroll;
       }
 
       .quote-box {
@@ -119,7 +120,7 @@
     <div class="translation" id="translation"></div>
     <div class="inspirational" id="inspirational"></div>
   </div>
-  <button onclick="showRandomQuote()">Show Another Reminder</button>
+  <button id="showQuoteBtn">Show Another Reminder</button>
 
   <script>
     const quotes = [
@@ -142,11 +143,10 @@
       document.getElementById("inspirational").innerText = random.inspirational;
     }
 
-    showRandomQuote();
-  </script>
-</body>
-</html>
+    // Attach button to function
+    document.getElementById("showQuoteBtn").addEventListener("click", showRandomQuote);
 
+    // Show initial quote
     showRandomQuote();
   </script>
 </body>

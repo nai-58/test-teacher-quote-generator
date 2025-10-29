@@ -1,121 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Teacher's Moment of Peace</title>
-    <style>
-        :root {
-            --color-50: #EDF8F5;
-            --color-100: #CCEBE3;
-            --color-200: #ABDED0;
-            --color-300: #89D1BE;
-            --color-400: #68C4AC;
-            --color-500: #47B89A;
-            --color-600: #3B977E;
-            --color-700: #2E7662;
-            --color-800: #23594B;
-            --color-900: #14332B;
-            --color-950: #07120F;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Teacher's Moment of Peace</title>
+  <style>
+    :root {
+      --cream: #fbf6e3;
+      --dark-green: #2f3c1c;
+      --light-green: #bbb073;
+      --mid-green: #848861;
+    }
 
-        body {
-            margin: 0;
-            height: 100vh;
-            background: url('background.png') no-repeat center center fixed;
-            background-size: cover;
-            color: var(--color-950);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: "Poppins", sans-serif;
-            text-align: center;
-            padding: 30px;
-        }
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--dark-green);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: var(--color-50);
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: var(--dark-green);
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+    }
 
-        .quote-box {
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.25);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            margin-bottom: 25px;
-            color: var(--color-50);
-        }
+    .quote-box {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 25px;
+      border: 2px solid var(--light-green);
+      color: var(--dark-green);
+    }
 
-        .arabic {
-            font-size: 1.6em;
-            line-height: 1.6;
-            direction: rtl;
-            font-family: "Scheherazade New", serif;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
+    .arabic {
+      font-size: 1.6em;
+      line-height: 1.6;
+      direction: rtl;
+      font-family: "Scheherazade New", serif;
+      color: var(--dark-green);
+      margin-bottom: 15px;
+    }
 
-        .translation, .inspirational {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #f0f0f0;
-            margin-top: 10px;
-        }
+    .translation,
+    .inspirational {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #3b4323;
+      margin-top: 10px;
+    }
 
-        button {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 12px 24px;
-            font-size: 1em;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-        }
+    button {
+      background-color: var(--mid-green);
+      color: var(--cream);
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        button:hover {
-            background-color: rgba(255, 255, 255, 0.35);
-            transform: scale(1.05);
-        }
-    </style>
+    button:hover {
+      background-color: var(--dark-green);
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-    <h1>🌿 A Teacher's Moment of Peace</h1>
-    <div class="quote-box">
-        <div class="arabic" id="arabic"></div>
-        <div class="translation" id="translation"></div>
-        <div class="inspirational" id="inspirational"></div>
-    </div>
-    <button onclick="showRandomQuote()">Show Another Reminder</button>
+  <h1>🌿 A Teacher's Moment of Peace</h1>
+  <div class="quote-box">
+    <div class="arabic" id="arabic"></div>
+    <div class="translation" id="translation"></div>
+    <div class="inspirational" id="inspirational"></div>
+  </div>
+  <button onclick="showRandomQuote()">Show Another Reminder</button>
 
-    <script>
-        const quotes = [
-            {arabic: "إِنَّ مَعَ الْعُسْرِ يُسْرًا", translation: "Indeed, with hardship comes ease. (Surah Ash-Sharh 94:6)", inspirational: ""},
-            {arabic: "وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ", translation: "And whoever puts their trust in Allah — He will suffice them. (Surah At-Talaq 65:3)", inspirational: ""},
-            {arabic: "وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ", translation: "Do not despair of the mercy of Allah. (Surah Az-Zumar 39:53)", inspirational: ""},
-            {arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", translation: "So verily, with every difficulty, there is relief. (Surah Ash-Sharh 94:5)", inspirational: ""},
-            {arabic: "وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ", translation: "And say: Do [good] deeds; Allah will see your deeds. (Surah At-Tawbah 9:105)", inspirational: ""},
-            {arabic: "", translation: "", inspirational: "A teacher who guides a student in beneficial knowledge is rewarded every time the student benefits. (Sahih Muslim)"},
-            {arabic: "", translation: "", inspirational: "Seeking knowledge and sharing it is a form of charity; your efforts as a teacher bring ongoing reward. (Sahih Al-Bukhari)"},
-            {arabic: "", translation: "", inspirational: "Every lesson you teach sincerely increases your reward and brings blessings upon you and your students."},
-            {arabic: "", translation: "", inspirational: "Patience and care in teaching are counted as acts of worship and bring Allah’s pleasure."},
-            {arabic: "", translation: "", inspirational: "Even small guidance given to a student can earn immense reward in the sight of Allah."}
-        ];
+  <script>
+    const quotes = [
+      { arabic: "إِنَّ مَعَ الْعُسْرِ يُسْرًا", translation: "Indeed, with hardship comes ease. (Surah Ash-Sharh 94:6)", inspirational: "" },
+      { arabic: "وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ", translation: "And whoever puts their trust in Allah — He will suffice them. (Surah At-Talaq 65:3)", inspirational: "" },
+      { arabic: "وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ", translation: "Do not despair of the mercy of Allah. (Surah Az-Zumar 39:53)", inspirational: "" },
+      { arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", translation: "So verily, with every difficulty, there is relief. (Surah Ash-Sharh 94:5)", inspirational: "" },
+      { arabic: "وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ", translation: "And say: Do [good] deeds; Allah will see your deeds. (Surah At-Tawbah 9:105)", inspirational: "" },
+      { arabic: "", translation: "", inspirational: "A teacher who guides a student in beneficial knowledge is rewarded every time the student benefits. (Sahih Muslim)" },
+      { arabic: "", translation: "", inspirational: "Seeking knowledge and sharing it is a form of charity; your efforts as a teacher bring ongoing reward. (Sahih Al-Bukhari)" },
+      { arabic: "", translation: "", inspirational: "Every lesson you teach sincerely increases your reward and brings blessings upon you and your students." },
+      { arabic: "", translation: "", inspirational: "Patience and care in teaching are counted as acts of worship and bring Allah’s pleasure." },
+      { arabic: "", translation: "", inspirational: "Even small guidance given to a student can earn immense reward in the sight of Allah." }
+    ];
 
-        function showRandomQuote() {
-            const random = quotes[Math.floor(Math.random() * quotes.length)];
-            document.getElementById("arabic").innerText = random.arabic;
-            document.getElementById("translation").innerText = random.translation;
-            document.getElementById("inspirational").innerText = random.inspirational;
-        }
+    function showRandomQuote() {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("arabic").innerText = random.arabic;
+      document.getElementById("translation").innerText = random.translation;
+      document.getElementById("inspirational").innerText = random.inspirational;
+    }
 
-        showRandomQuote();
-    </script>
+    showRandomQuote();
+  </script>
 </body>
 </html>
+

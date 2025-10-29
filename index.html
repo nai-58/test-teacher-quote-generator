@@ -15,8 +15,9 @@
     body {
       margin: 0;
       height: 100vh;
-      background: url('background-landscape.png') no-repeat center center fixed;
+      background: url('background.png') no-repeat center center fixed;
       background-size: cover;
+      background-color: var(--cream);
       color: var(--dark-green);
       display: flex;
       flex-direction: column;
@@ -78,11 +79,12 @@
       transform: scale(1.05);
     }
 
-    /* MOBILE VIEW — switch to portrait image */
+    /* MOBILE OPTIMIZATION */
     @media screen and (max-width: 768px) {
       body {
-        background: url('background-portrait.png') no-repeat center center fixed;
-        background-size: cover;
+        background: url('background.png') no-repeat center center;
+        background-attachment: scroll;
+        background-size: contain;
         background-color: var(--cream);
         padding: 20px;
       }
@@ -139,6 +141,11 @@
       document.getElementById("translation").innerText = random.translation;
       document.getElementById("inspirational").innerText = random.inspirational;
     }
+
+    showRandomQuote();
+  </script>
+</body>
+</html>
 
     showRandomQuote();
   </script>

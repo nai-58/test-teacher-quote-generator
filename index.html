@@ -26,7 +26,7 @@
       font-family: "Poppins", sans-serif;
       text-align: center;
       background: url('background.png') no-repeat center center fixed;
-      background-size: cover; /* zoom to cover entire screen */
+      background-size: cover;
       color: var(--dark-green);
       padding: 30px;
     }
@@ -40,7 +40,7 @@
 
     .quote-box {
       max-width: 800px;
-      background: rgba(251, 246, 227, 0.85);
+      background: white; /* white box */
       padding: 30px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(47, 60, 28, 0.3);
@@ -66,7 +66,7 @@
     }
 
     button {
-      background-color: white;
+      background-color: var(--cream); /* creamy button */
       color: var(--dark-green);
       border: 2px solid var(--mid-green);
       padding: 12px 24px;
@@ -148,10 +148,8 @@
     // Attach button to function
     document.getElementById("showQuoteBtn").addEventListener("click", showRandomQuote);
 
-    // Show initial quote
+    // Show initial quote on page load
     showRandomQuote();
   </script>
 </body>
 </html>
-
-
